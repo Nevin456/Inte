@@ -10,7 +10,10 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="View Map"
         tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="282dp" />
+        tools:layout_editor_absoluteY="282dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
