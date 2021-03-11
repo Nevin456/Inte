@@ -9,42 +9,39 @@ import android.widget.Button;
 
 import com.google.android.gms.common.SignInButton;
 
-public class Main extends AppCompatActivity {
+public class Main extends AppCompatActivity implements View.OnClickListener{
 
-    private Button button;
-    private Button button2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button=findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMap();
-            }
-        });
+        Button button1 = findViewById(R.id.button);
+        Button button2 = findViewById(R.id.SignIn);
+        Button button3=findViewById(R.id.SignUp);
 
-        /*button2=findViewById(R.id.SignIn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLogin();
-            }
-        });
-*/
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
+
 
     }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button:
+                startActivity(new Intent(Main.this,MapsActivity.class));
+                break;
+            case R.id.SignIn:
+                startActivity(new Intent(Main.this,LoginActivity.class));
+                break;
+            case R.id.SignUp:
+                startActivity(new Intent(Main.this,SignUpActivity.class));
+                break;
 
-    public void openMap(){
-        Intent intent1=new Intent(this,MapsActivity.class);
-        startActivity(intent1);
-    }
-
-    public void openLogin()
-        {
-            Intent intent2 = new Intent(this, LoginActivity.class);
-            startActivity(intent2);
+            default:
+                break;
         }
+    }
 }
