@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/logoimg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -9,12 +10,14 @@
     android:paddingTop="10dp"
     android:paddingRight="10dp"
     android:paddingBottom="10dp"
+    android:verticalScrollbarPosition="defaultPosition"
     tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/topic1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
         android:fontFamily="serif"
         android:text="Log In"
         android:textColor="#0C0B0B"
@@ -33,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/input_bg"
@@ -90,11 +93,35 @@
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="90dp"
         android:background="@drawable/btn_bg"
         android:text="Create An Account"
         app:backgroundTint="#03A9F4"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/alreadyacctextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Don't Have An Account?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="114dp"
+        android:layout_height="107dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputusername"
+        app:layout_constraintEnd_toEndOf="@+id/topic1"
+        app:layout_constraintStart_toStartOf="@+id/topic1"
+        app:layout_constraintTop_toBottomOf="@+id/topic1"
+        app:srcCompat="@drawable/logoimg" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
