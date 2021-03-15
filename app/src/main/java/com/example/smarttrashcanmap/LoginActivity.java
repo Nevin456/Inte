@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEmail, mPass;
-    private TextView mTextView;
+    private TextView noAccTxt;
     private Button signInBtn;
     private FirebaseAuth mAuth;
 
@@ -37,7 +37,16 @@ public class LoginActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.inputusername);
         mPass = findViewById(R.id.inputpass);
         signInBtn = findViewById(R.id.buttonLogin);
-        mTextView = findViewById(R.id.textView2);
+        noAccTxt = findViewById(R.id.alreadyacctextview);
+
+
+        noAccTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -77,6 +86,11 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             mEmail.setError("Pleas Enter Correct Email");
         }
+    }
+
+    public void openActivity2(){
+        Intent intent=new Intent(this,SignUpActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -39,6 +39,14 @@ public class SignUpActivity extends AppCompatActivity {
         mPass=findViewById(R.id.editTextTextPassword);
         mCpass=findViewById(R.id.confirm_Password);
 
+        haveac=findViewById(R.id.haveAc);
+        haveac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
+
         mAuth=FirebaseAuth.getInstance();
 
 
@@ -95,9 +103,9 @@ public class SignUpActivity extends AppCompatActivity {
             mEmail.setError("Please Enter a Correct Email Address");
         }
     }
-    /*public void openActivity2(){
+    public void openActivity2(){
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
-    }*/
+    }
 
 }
