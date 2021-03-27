@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class SignUpActivity extends AppCompatActivity {
+public class  SignUpActivity extends AppCompatActivity {
 
     private Button button;
     private EditText mEmail,mPass,mCpass;
