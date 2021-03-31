@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class LoginAdapter extends FragmentPagerAdapter {
+public class LoginAdapter1 extends FragmentPagerAdapter {
 
     private Context context;
     int totalTabs;
 
 
-    public LoginAdapter(FragmentManager fn, Context context, int totalTabs) {
+    public LoginAdapter1(FragmentManager fn, Context context, int totalTabs) {
         super(fn);
         this.context = context;
         this.totalTabs = totalTabs;
@@ -29,11 +29,11 @@ public class LoginAdapter extends FragmentPagerAdapter {
 
 
             case 0:
-                LoginTabFragment loginTabFragment = new LoginTabFragment();
-                return loginTabFragment;
+                LoginTabFragment1 loginTabFragment1 = new LoginTabFragment1();
+                return loginTabFragment1;
             case 1:
-                SignupTabFragment signupTabFragment = new SignupTabFragment();
-                return signupTabFragment;
+                SignupTabFragment1 signupTabFragment1 = new SignupTabFragment1();
+                return signupTabFragment1;
             default:
                 return null;
 

@@ -30,7 +30,7 @@ public class NewlogActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Signup"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(),this,tabLayout.getTabCount());
+        final LoginAdapter1 adapter = new LoginAdapter1(getSupportFragmentManager(),this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

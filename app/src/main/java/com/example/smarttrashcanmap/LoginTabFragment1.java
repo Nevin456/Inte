@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
-public class LoginTabFragment extends Fragment {
+public class LoginTabFragment1 extends Fragment {
     EditText Email;
     EditText Pass;
     Button login;
