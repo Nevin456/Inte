@@ -70,10 +70,18 @@ View view =inflater.inflate(R.layout.alert,null);
                 status=dataSnapshot.child("distance").getValue().toString();
                 distance.setText(status);
                 if(level==4.75){
-                    circle=findViewById(R.id.donut);
-                    //    circle.setProgressDrawable();issue
 
                 }
+                // int color = circle.setFinishedColor(R.styleable.CircleProgress );
+                else if(level<=9.5){
+
+            }
+                else if(level<=14.25){
+
+            }
+                else{
+
+            }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
