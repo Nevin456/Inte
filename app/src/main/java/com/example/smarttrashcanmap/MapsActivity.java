@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import android.widget.Toast;
 
 import android.Manifest;
 import android.content.Context;
@@ -33,6 +34,13 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class MapsActivity extends FragmentActivity implements
         OnMapReadyCallback
@@ -44,6 +52,20 @@ public class MapsActivity extends FragmentActivity implements
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
 
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+
+    LatLng sTCPrimeLat;
+    String sTCPLat;
+    String sTCPrimeLong;
+    Double Latitude;
+    Double Longitude;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +74,18 @@ public class MapsActivity extends FragmentActivity implements
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+
+        getData();
+
+    }
+
+    private void getData() {
+
+        // calling add value event listener method
+        // for getting the values from database.
+
     }
 
     /**
@@ -66,7 +100,42 @@ public class MapsActivity extends FragmentActivity implements
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+
+
         mMap = googleMap;
+        firebaseDatabase=firebaseDatabase.getInstance();
+
+        databaseReference=firebaseDatabase.getReference("STC_ID/STC_Prime/GPS_Coordinates");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // this method is call to get the realtime
+                // updates in the data.
+                // this method is called when the data is
+                // changed in our Firebase console.
+                // below line is for getting the data from
+                // snapshot of our database.
+                HashMap<String, Double> data = (HashMap<String, Double>) dataSnapshot.getValue();
+                double latitude = data.get("Latitude");
+                double longitude = data.get("Longitude");
+                LatLng STCPrime=new LatLng(latitude,longitude);
+                mMap.addMarker(new MarkerOptions().position(STCPrime).title("STC_Prime").icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_restore_from_trash_high)));
+                //sTCPLat = snapshot.getValue(String.class);
+
+
+                // after getting the value we are setting
+                // our value to our text view in below line.
+                //retriveTV.setText(sTCPrimeLat);
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // calling on cancelled method when we receive
+                // any error or we are not able to get the data.
+                Toast.makeText(MapsActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         try {
             // Customise the styling of the base map using a JSON object defined
@@ -89,6 +158,7 @@ public class MapsActivity extends FragmentActivity implements
         LatLng MajesticCity = new LatLng(6.8940, 79.8547);
         LatLng Crescat = new LatLng(6.9171, 79.8485);
         LatLng Savoy3D = new LatLng(6.8792, 79.8596);
+        //LatLng STCPrime= new LatLng(latitude,45.456);
 //        LatLng CurrentLoc = new LatLng;
         mMap.addMarker(new MarkerOptions().position(Colombo).title("Marker in Colombo").icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_restore_from_trash_good)));
         mMap.addMarker(new MarkerOptions().position(Maharagama).title("Marker in Maharagama").icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_restore_from_trash_high)));
@@ -96,6 +166,7 @@ public class MapsActivity extends FragmentActivity implements
         mMap.addMarker(new MarkerOptions().position(MajesticCity).title("Marker in MajesticCity").icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_restore_from_trash_high)));
         mMap.addMarker(new MarkerOptions().position(Crescat).title("Marker in Crescat").icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_restore_from_trash_good)));
         mMap.addMarker(new MarkerOptions().position(Savoy3D).title("Marker in Savoy3D").icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_baseline_restore_from_trash_high)));
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Colombo, 13f));
 
        /* if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
