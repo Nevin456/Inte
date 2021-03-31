@@ -11,10 +11,12 @@ public class LoginAdapter extends FragmentPagerAdapter {
     private Context context;
     int totalTabs;
 
-    public LoginAdapter(FragmentManager fn, Context context,int totalTabs) {
+
+    public LoginAdapter(FragmentManager fn, Context context, int totalTabs) {
         super(fn);
         this.context = context;
         this.totalTabs = totalTabs;
+
     }
 
     @Override
@@ -22,19 +24,20 @@ public class LoginAdapter extends FragmentPagerAdapter {
         return totalTabs;
     }
 
-    public Fragment getItem(int position){
-        switch(position){
+    public Fragment getItem(int position) {
+        switch (position) {
+
+
             case 0:
-                LoginTabFragment loginTabFragment=new LoginTabFragment();
+                LoginTabFragment loginTabFragment = new LoginTabFragment();
                 return loginTabFragment;
             case 1:
-                SignupTabFragment signupTab_fragment=new SignupTabFragment();
-                return signupTab_fragment;
+                SignupTabFragment signupTabFragment = new SignupTabFragment();
+                return signupTabFragment;
             default:
                 return null;
 
+
         }
     }
-
-
 }
