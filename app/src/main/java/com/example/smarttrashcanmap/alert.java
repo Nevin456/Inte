@@ -18,7 +18,7 @@ public class alert extends AppCompatActivity {
     TextView distance,level_status;
     DatabaseReference dref;
     String status;
-    private int level=30,circleFinishedColor;
+    private int level,circleFinishedColor;
     Button cancel;
     CircleProgress circle;
 
@@ -35,7 +35,7 @@ public class alert extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this, .class);
+                //Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 // startActivity(intent);
 
             }
