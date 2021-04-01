@@ -3,6 +3,8 @@ package com.example.smarttrashcanmap;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.lzyzsd.circleprogress.CircleProgress;
@@ -13,75 +15,56 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class alert extends AppCompatActivity {
-    TextView distance;
+    TextView distance,level_status;
     DatabaseReference dref;
     String status;
-    private int level;
+    private int level=30,circleFinishedColor;
+    Button cancel;
     CircleProgress circle;
-    private static final String TAG="MainActivity";
-//in order to show the dialog box nevin needs to add the code to the tag on map
-  /* ImageView img = (ImageView) findViewById(R.id.showdialog);
-    showdialog.setOnClickListener(new OnClickListener() {
-    @override
-        public void onClick(View v) {
-          showDialog();
-        }
-    });
-    }
-    void showDialog(){
-    LayoutInflater inflater=LayoutInflater.from(this);
-View view =inflater.inflate(R.layout.alert,null);
-        Button detailsbtn=view.findViewById(R.id.details);
-        Button cancelbtn=view.findViewById(R.id.cancel);
-        detailsbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, .class);
-                startActivity(intent);
 
-            }
-        });
-        cancelbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e(TAG,"onClick:cancel")
-            }
-        })
-        AlertDialog alertdialog=new AlertDialog.Builder(this)
-                .setView(view)
-                .create();
-        alertdialog.show();
-}
-
-
-   https://youtu.be/0W1e-ZCYr8k
-
-    */
+    private static final String TAG="activity_alert";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
         distance = (TextView) findViewById(R.id.distance);
+        level_status = (TextView) findViewById(R.id.status);
         dref= FirebaseDatabase.getInstance().getReference();
+        Button cancel=(Button) findViewById(R.id.cancel2);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(MainActivity.this, .class);
+                // startActivity(intent);
+
+            }
+        });
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 status=dataSnapshot.child("distance").getValue().toString();
                 distance.setText(status);
-                if(level==4.75){
+                circle=findViewById(R.id.donut);
+                if(level<=4.75){
+                    circle.setFinishedColor(getResources().getColor(R.color.teal_700));
+                    level_status.setText("Level is Below 25%. Attention not Needed!");
 
                 }
-                // int color = circle.setFinishedColor(R.styleable.CircleProgress );
                 else if(level<=9.5){
-
-            }
+                    circle.setFinishedColor(getResources().getColor(R.color.purple_700));
+                    level_status.setText("Level is below 50%. Attention not Needed!");
+                }
                 else if(level<=14.25){
-
-            }
+                    circle.setFinishedColor(getResources().getColor(R.color.yellow));
+                    level_status.setText("Level is Below 75%. Attention not Needed!");
+                }
                 else{
 
-            }
+                    level_status.setText("Level is Above 75%. Attention Needed!");
+                    level_status.setTextColor(getResources().getColor(R.color.red));
+                }
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
