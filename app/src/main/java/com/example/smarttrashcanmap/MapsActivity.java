@@ -44,9 +44,7 @@ import java.util.HashMap;
 
 public class MapsActivity extends FragmentActivity implements
         OnMapReadyCallback
-        /*GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener*/ {
+         {
 
     private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
@@ -70,7 +68,7 @@ public class MapsActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -83,8 +81,7 @@ public class MapsActivity extends FragmentActivity implements
 
     private void getData() {
 
-        // calling add value event listener method
-        // for getting the values from database.
+
 
     }
 
@@ -109,12 +106,7 @@ public class MapsActivity extends FragmentActivity implements
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // this method is call to get the realtime
-                // updates in the data.
-                // this method is called when the data is
-                // changed in our Firebase console.
-                // below line is for getting the data from
-                // snapshot of our database.
+
                 HashMap<String, Double> data = (HashMap<String, Double>) dataSnapshot.getValue();
                 double latitude = data.get("Latitude");
                 double longitude = data.get("Longitude");

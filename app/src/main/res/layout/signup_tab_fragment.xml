@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/txtEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="E-mail"
@@ -22,69 +23,52 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/txtConpass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
         android:background="@drawable/edit_text_bg"
+        android:hint="Confirm Password"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Username"
+        app:layout_constraintTop_toBottomOf="@+id/txtPass"
         app:layout_constraintVertical_bias="0.036"
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/Username"
+        android:id="@+id/txtPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Username"
         android:background="@drawable/edit_text_bg"
+        android:hint="Password"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.03"
         app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintWidth_percent=".8" />
-
-    <EditText
-        android:id="@+id/confirmpass"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Confirm Password"
-        android:background="@drawable/edit_text_bg"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass"
-        app:layout_constraintVertical_bias="0.044"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+        app:layout_constraintVertical_bias="0.03"
         app:layout_constraintWidth_percent=".8" />
 
     <Button
-        android:id="@+id/signup_button"
+        android:id="@+id/btnCA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="342dp"
         android:background="@drawable/button_bg"
-        android:text="Signup"
-        android:textColor="@color/white"
+        android:text="Create Account"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="#3CD842"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmpass"
-        app:layout_constraintVertical_bias="0.358"
+        app:layout_constraintTop_toBottomOf="@+id/txtConpass"
         app:layout_constraintWidth_percent=".8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    tools:context=".TrashCanUI">
+
+  <!--  <com.github.lzyzsd.circleprogress.CircleProgress
+        android:id="@+id/donut"
+        app:circle_finished_color="@color/teal_700"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:less_than_25="#44CC25"
+        app:less_than_50="#2468B5"
+        app:more_than_75="#CD2020"
+        app:less_than_75="#FFE53D"
+        android:layout_marginBottom="40dp"
+        app:circle_progress="10"
+        tools:ignore="MissingClass" />
+-->
+    <TextView
+        android:id="@+id/distance"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/percentage"
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/label_depth" />
+
+</LinearLayout>

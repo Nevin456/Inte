@@ -21,8 +21,8 @@ public class LoginTabFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment, container, false);
 
-        Email = root.findViewById(R.id.email);
-        Pass = root.findViewById(R.id.pass);
+        Email = root.findViewById(R.id.txtEmail);
+        Pass = root.findViewById(R.id.txtConpass);
         login=root.findViewById(R.id.button);
 
         Email.setAlpha(v);

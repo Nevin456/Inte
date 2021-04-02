@@ -14,21 +14,41 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/topic1"
+        android:id="@+id/txtWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginRight="320dp"
         android:layout_marginBottom="300dp"
         android:fontFamily="serif"
-        android:text="Log In"
+        android:text="Hey,"
         android:textColor="#0C0B0B"
-        android:textSize="36sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.143" />
+
+    <TextView
+        android:id="@+id/txtWelcome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="300dp"
+        android:fontFamily="serif"
+        android:text="Welcome back"
+        android:textColor="#0C0B0B"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289" />
 
     <EditText
         android:id="@+id/inputusername"
@@ -54,7 +74,7 @@
         android:textColorHint="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topic1" />
+        app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
 
     <EditText
         android:id="@+id/inputpass"
@@ -108,12 +128,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="114dp"
-        android:layout_height="107dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toTopOf="@+id/inputusername"
-        app:layout_constraintEnd_toEndOf="@+id/topic1"
-        app:layout_constraintStart_toStartOf="@+id/topic1"
-        app:layout_constraintTop_toBottomOf="@+id/topic1"
-        app:srcCompat="@drawable/logoimg" />
+        app:layout_constraintStart_toEndOf="@+id/txtWelcome2"
+        app:srcCompat="@drawable/newlive1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
