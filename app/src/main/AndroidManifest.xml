@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         -->
+
         <activity android:name=".splashscreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,14 +42,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".DashboardActivity">
+        
+        <activity android:name=".Test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT " />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Test">
+        <activity android:name=".DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

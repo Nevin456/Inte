@@ -40,7 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction()== MotionEvent.ACTION_DOWN){
-                    cardM.setCardBackgroundColor(cardM.getResources().getColor(R.color.green));
+                    cardM.setCardBackgroundColor(cardM.getResources().getColor(R.color.teal_200));
                 openMap();}
 
                 else if(event.getAction()==MotionEvent.ACTION_UP){
